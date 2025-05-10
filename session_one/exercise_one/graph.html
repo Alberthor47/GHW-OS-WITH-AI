@@ -1,0 +1,49 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Graph</title>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        </head>
+        <body>
+            <h1>Graph Visualization</h1>
+            <canvas id="myChart" width="400" height="200"></canvas>
+            <script>
+                const ctx = document.getElementById('myChart').getContext('2d');
+                const data = [307,243,129,464,485,98,28,416,107,377,16,213,410,115,178,100,425,199,223,98,425,92,134,121,160,193,26,127,490,14,52,388,348,54,250,189,316,157,410,438,94,63,312,182,371,85,206,197,384,320,491,395,42,152,346,465,298,8,463,86,11,96,49,411,419,298,500,72,437,316,93,155,73,464,226,360,236,47,388,141,449,435,73,66,215,355,28,348,392,395,375,487,26,236,49,489,254,166,359,220];
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.map((_, index) => 'Point ' + (index + 1)),
+                        datasets: [{
+                            label: 'Data Points',
+                            data: data,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 2,
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Index'
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Value'
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+        </body>
+        </html>
+        
